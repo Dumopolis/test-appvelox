@@ -1,24 +1,28 @@
-import logo from './logo.svg';
+
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './App.css';
+import Layout from './components/Layout';
+import { NotFound } from './components/NotFound';
+import { ProfileSection } from './components/ProfileSection';
+import { Record } from './components/Record';
+import { ContextProvider } from './context';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <ContextProvider>
+        <Routes>
+          <Route path='/' element={<Layout />}>
+            <Route path='profile' element={<ProfileSection />} />
+            <Route path='profile/records' element={<Record />} />
+            <Route path='*' element={<NotFound />} />
+          </Route>
+        </Routes>
+      </ContextProvider>
+    </BrowserRouter>
+
+
+
   );
 }
 

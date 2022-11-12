@@ -1,38 +1,465 @@
-.App {
+.Header {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 55px;
+  color: #fff;
+}
+
+.Header-Logo {
+  width: 190px;
+  text-align: left;
+  height: 100%;
+  background-color: #003B72;
+
+}
+
+.Logo {
+  margin: 20px 0 0 20px;
+}
+
+.Header-Main {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: calc(100vw - 190px);
+  height: 100%;
+  background-color: #50CAFF;
+
+}
+
+.Title {
+  font-weight: 400;
+  font-size: 28px;
+  line-height: 33px;
+  color: #000
+}
+
+.Header-Title {
+  margin-left: 20px;
+  color: #fff;
+}
+
+.Menu {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 186px;
+  margin-right: 40px;
+}
+
+.Menu-Icon {
+  display: inline-flex;
+  width: 18px;
+  height: 18px;
+}
+
+.Search-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/search.svg) no-repeat center;
+  mask: url(./IMG/search.svg) no-repeat center;
+}
+
+.Bell-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/bell.svg) no-repeat center;
+  mask: url(./IMG/bell.svg) no-repeat center;
+}
+
+.Eye-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/eye.svg) no-repeat center;
+  mask: url(./IMG/eye.svg) no-repeat center;
+}
+
+.Profile {
+  display: inline-flex;
+
+  height: 100%;
+  justify-content: space-between;
+  align-items: center;
+  width: 72px;
+}
+
+.Avatar {
+  border-radius: 50%;
+  object-fit: cover;
+  cursor: pointer;
+}
+
+.Profile-Avatar {
+  width: 45px;
+  height: 45px;
+  padding: 1px;
+  border: solid #fff 1px;
+
+}
+
+.Profile-Dropdown {
+  width: 16px;
+  height: 16px;
+  background-color: #fff;
+  border-radius: 5px;
+  position: relative;
+  cursor: pointer;
+}
+
+.Profile-Dropdown::before {
+  content: '';
+  top: 8px;
+  left: 7.2px;
+  transform: rotate(-30deg);
+  position: absolute;
+  background-color: #50CAFF;
+  height: 1.3px;
+  width: 5px;
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+.Profile-Dropdown::after {
+  content: '';
+  top: 8px;
+  right: 7.2px;
+  transform: rotate(30deg);
+  position: absolute;
+  background-color: #50CAFF;
+  height: 1.3px;
+  width: 5px;
+  border-radius: 1px;
+  transition: 0.3s;
+}
+
+.Profile-Dropdown.Active::after {
+  transform: rotate(-30deg)
+}
+
+.Profile-Dropdown.Active::before {
+  transform: rotate(30deg)
+}
+
+.Main {
+  display: inline-flex;
+  height: calc(100vh - 55px);
+  width: 100%;
+}
+
+.Navigation {
+  width: 190px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-color: #003B72;
+}
+
+.Sections {
+  display: flex;
+  flex-direction: column;
+
+}
+
+.Section {
+  height: 46px;
+  width: 187px;
+  color: #fff;
+  display: inline-flex;
+  font-size: 14px;
+  margin-bottom: 10px;
+  align-items: center;
+  border-left: #003B72 solid 3px;
+}
+
+.active {
+  background-color: #fff;
+  color: #7761FF;
+  border-left: #7761FF solid 3.3px;
+}
+
+.active .Section-Icon {
+  background-color: #7761FF;
+}
+
+
+.Section-Icon {
+  margin-left: 20px;
+  width: 18px;
+  height: 18px;
+}
+
+.Section-Name {
+  margin-left: 14px;
+}
+
+.Profile-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/profile.svg) no-repeat center;
+  mask: url(./IMG/profile.svg) no-repeat center;
+}
+
+.Doctors-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/doctors.svg) no-repeat center;
+  mask: url(./IMG/doctors.svg) no-repeat center;
+}
+
+.Message-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/message.svg) no-repeat center;
+  mask: url(./IMG/message.svg) no-repeat center;
+}
+
+.Tests-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/tests.svg) no-repeat center;
+  mask: url(./IMG/tests.svg) no-repeat center;
+}
+
+.Helpful-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/helpful.svg) no-repeat center;
+  mask: url(./IMG/helpful.svg) no-repeat center;
+}
+
+.Help-Icon {
+  background-color: #fff;
+  -webkit-mask: url(./IMG/help.svg) no-repeat center;
+  mask: url(./IMG/help.svg) no-repeat center;
+}
+
+.Button {
+  background-color: #7761FF;
+  height: 40px;
+  width: 98px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  opacity: 0.95;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.Button-Navigation {
+  width: 150px;
+  margin-left: 20px;
+}
+
+.Button:hover {
+  opacity: 1;
+}
+
+.AppVelox {
+  width: 113.32px;
+  height: 20px;
+  margin-left: 20px;
+  margin-bottom: 16px;
+}
+
+.Calendar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  width: 573px;
+  height: 315px;
+}
+
+.Date {
+
+  font-size: 24px;
+}
+
+.ProfileSection {
+  margin: 15px 60px 0 20px;
+  width: 100%;
+}
+
+.Topic {
+  margin: 20px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.MedicalRecords-Preview {
+  display: inline-flex;
+
+  align-items: center;
+  width: 100%;
+}
+
+.Records-Preview {
+  display: inline-flex;
+
+  align-items: center;
+
+
+}
+
+.Record {
+  width: 435px;
+  height: 134px;
+  margin: 15px 20px 35px 0;
+  padding: 20px;
+  box-shadow: 0px 0px 5px #EBE7FF;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+
+}
+
+.RecordDate {
+  margin-bottom: 5px;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 19px;
+}
+
+.Address {
+  margin-bottom: 10px;
+  width: 280px;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.RecordInfo {
+  width: 100%;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.Doctor {
+  width: fit-content;
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.DoctorName {
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+}
+
+.DoctorDepartament {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #EBE7FF;
+}
+
+.Doctor-Avatar {
+  margin: 0 10px 0 0;
+  width: 60px;
+  height: 60px;
+}
+
+.More {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.LinkDecoration {
+  color: #50CAFF;
+  text-decoration: underline;
+
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.ElectroningCard {
+  display: grid;
+  grid-template-columns: repeat(2, 540px);
+  gap: 15px;
+  grid-auto-rows: 183px;
+  margin-top: 15px;
+
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.Card {
+  border-radius: 5px;
+  box-shadow: 0px 0px 5px #EBE7FF;
+  display: inline-flex;
+  border: #fff solid 2px;
+}
+
+.Card-Icons {
+  width: 131px;
+  height: 100%;
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center;
 }
 
-.App-link {
-  color: #61dafb;
+.Card-Icon {
+  width: 50px;
+  height: 50px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.IconReport {
+  background-color: #EBE7FF;
+  -webkit-mask: url(./IMG/report.svg) no-repeat center;
+  mask: url(./IMG/report.svg) no-repeat center;
+}
+
+.IconLab {
+  background-color: #EBE7FF;
+  -webkit-mask: url(./IMG/lab.svg) no-repeat center;
+  mask: url(./IMG/lab.svg) no-repeat center;
+}
+
+.IconHistory {
+  background-color: #EBE7FF;
+  -webkit-mask: url(./IMG/clock.svg) no-repeat center;
+  mask: url(./IMG/clock.svg) no-repeat center;
+}
+
+.IconAdd {
+  background-color: #EBE7FF;
+  -webkit-mask: url(./IMG/add.svg) no-repeat center;
+  mask: url(./IMG/add.svg) no-repeat center;
+}
+
+.Card-Info {
+  margin: 20px 36px;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  width: 407px;
+}
+.Line{
+  margin: 10px 0 15px 0;
+  display: block;
+  width: 355px;
+  background-color: #EBE7FF;
+  height: 2px;
+}
+.List {
+  padding: 0 0 0 15px;
+  color: #EBE7FF;
+  margin: 0;
+}
+
+.BalckFont {
+  color: #000;
+}
+.Card:hover{
+  border: #50CAFF solid 2px;
+}
+.Card:hover .Card-Icons{
+  background-color: #50CAFF;
+}
+.Card:hover .Line{
+  background-color: #50CAFF;
+}
+.Card:hover .Card-Icon{
+  background-color: #fff;
+}
+.Card:hover .List{
+  color: #50CAFF;
 }
