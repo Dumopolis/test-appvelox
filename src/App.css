@@ -259,17 +259,9 @@
   margin-bottom: 16px;
 }
 
-.Calendar {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  width: 573px;
-  height: 315px;
-}
 
-.Date {
 
-  font-size: 24px;
-}
+
 
 .ProfileSection {
   margin: 15px 60px 0 20px;
@@ -292,7 +284,7 @@
 
 .Records-Preview {
   display: inline-flex;
-
+  margin: 15px 0 35px 0;
   align-items: center;
 
 
@@ -301,7 +293,7 @@
 .Record {
   width: 435px;
   height: 134px;
-  margin: 15px 20px 35px 0;
+  margin: 0 20px 0 0;
   padding: 20px;
   box-shadow: 0px 0px 5px #EBE7FF;
   border-radius: 5px;
@@ -364,12 +356,17 @@
   font-size: 14px;
   line-height: 20px;
   text-align: center;
+  
 }
 
 .LinkDecoration {
   color: #50CAFF;
   text-decoration: underline;
+  cursor: pointer;
+}
 
+.LinkDecoration:active {
+  color: #7761FF;
 }
 
 .ElectroningCard {
@@ -432,13 +429,15 @@
   line-height: 24px;
   width: 407px;
 }
-.Line{
+
+.Line {
   margin: 10px 0 15px 0;
   display: block;
   width: 355px;
   background-color: #EBE7FF;
   height: 2px;
 }
+
 .List {
   padding: 0 0 0 15px;
   color: #EBE7FF;
@@ -448,18 +447,214 @@
 .BalckFont {
   color: #000;
 }
-.Card:hover{
+
+.Card:hover {
   border: #50CAFF solid 2px;
 }
-.Card:hover .Card-Icons{
+
+.Card:hover .Card-Icons {
   background-color: #50CAFF;
 }
-.Card:hover .Line{
+
+.Card:hover .Line {
   background-color: #50CAFF;
 }
-.Card:hover .Card-Icon{
+
+.Card:hover .Card-Icon {
   background-color: #fff;
 }
-.Card:hover .List{
+
+.Card:hover .List {
   color: #50CAFF;
+}
+
+.MedicalRecords {
+  margin: 10px 40px 23px 18px;
+  width: 505px;
+  height: 646px;
+  overflow: scroll;
+  scrollbar-color: #003B72 #fff;
+  scrollbar-width: 8px;
+
+}
+
+.MedicalRecords::-webkit-scrollbar {
+  width: 8px;
+}
+
+.MedicalRecords::-webkit-scrollbar-track {
+  background-color: #fff;
+}
+
+.MedicalRecords::-webkit-scrollbar-thumb {
+  background-color: #003B72;
+  border-radius: 5px;
+}
+
+.My-Applications-Header {
+  display: inline-flex;
+  margin-left: 0;
+}
+
+.Arrow {
+  display: flex;
+  width: 18px;
+  height: 14px;
+  background-color: rgb(0, 0, 0, 0.7);
+  -webkit-mask: url(./IMG/arrow.svg) no-repeat center;
+  mask: url(./IMG/arrow.svg) no-repeat center;
+  margin: 0 14px 0 40px;
+  cursor: pointer;
+
+}
+
+.Arrow:hover {
+  background-color: rgb(0, 0, 0);
+}
+
+.Arrow:active {
+  background-color: #7761FF;
+}
+
+.My-Applications {
+  display: flex;
+  flex-direction: column;
+}
+
+.My-Applications-Main {
+  display: inline-flex;
+}
+
+.Calendar {
+  width: 573px;
+  height: 481px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 5px;
+  align-items: center;
+  background-color: #EBE7FF;
+  position: relative;
+}
+
+.Days {
+
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 0.5px;
+  width: 553px;
+  height: 352px;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 20px;
+}
+
+.NameDays {
+  height: 37px;
+}
+
+.Date {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  cursor: pointer;
+  
+}
+
+.MonthSet {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  width: 573px;
+  height: 57px;
+  background-color: #7761FF;
+  color: #fff;
+  border-radius: 5px;
+  margin: 14px 0 0 0;
+}
+
+.DaysOfWeek {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 37px;
+}
+
+.Day {
+  width: 100%;
+  height: 100%;
+  margin: 10px 14px;
+  text-align: start;
+}
+
+.ApplicationCount {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  color: #fff;
+  background-color: #50CAFF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.BackMonth {
+
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  -webkit-mask: url(./IMG/back.svg) no-repeat center;
+  mask: url(./IMG/back.svg) no-repeat center;
+
+  cursor: pointer;
+
+}
+
+
+
+.NextMonth {
+
+  width: 14px;
+  height: 14px;
+  background-color: #fff;
+  -webkit-mask: url(./IMG/next.svg) no-repeat center;
+  mask: url(./IMG/next.svg) no-repeat center;
+
+  cursor: pointer;
+
+}
+
+.Disable {
+  background-color: #EBE7FF;
+  cursor: default;
+}
+
+.ViewAll {
+  width: 100%;
+  margin-left: 334px;
+  margin-bottom: 13px;
+}
+
+.MonthYear {
+  width: 150px;
+  text-align: center;
+}
+
+.Date {
+  padding: 2px;
+  border: none;
+}
+
+.Date:focus {
+  border: #50CAFF 2px solid;
+  padding:0;
 }

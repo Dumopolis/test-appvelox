@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import avatar from '../IMG/avatar.png'
+
 function Header() {
     return (
         <header className="Header">

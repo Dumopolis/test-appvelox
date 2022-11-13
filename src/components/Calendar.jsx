@@ -1,48 +1,53 @@
-import moment from "moment/moment"
+import { useContext } from "react";
+import { ApplicationContext } from "../context";
+import '../preloader.css'
+import { Day } from "./Day";
+
 
 function Calendar() {
-    moment.updateLocale("eu", { week: { dow: 1 } });
-    const options = {
-        
-        month: 'long',
-        
-        timezone: 'UTC'
-      };
-    
-
-    const lastDay = moment().endOf('month').endOf('week');
-    const getMonth = () => {
-        let nowMonth = new Date(moment().format("MM, DD, YYYY")).toLocaleString("ru-RU", options)
-        nowMonth = nowMonth.split('')
-        nowMonth[0] = nowMonth[0].toUpperCase();
-        nowMonth.join('')
-        return nowMonth;
-    }
-    const nowYear  = moment().format("YYYY")
-    const calendar = [];
-    let nextDay = moment().startOf('month').startOf('week').subtract(1, 'day')
-    let count = 0
-    while (!nextDay.isSame(lastDay, 'day')) {
-        nextDay = moment().startOf('month').startOf('week').add(count, 'day');
-        count += 1;
-        calendar.push(nextDay)
-    }
-    
+    const { nameMonth, month, previousMonth, nextMonth, calendary, } = useContext(ApplicationContext)
 
     return (
         <>
-          
+            <div className="MonthSet">
+                <div onClick={()=>{
+                    previousMonth();
+                    
+                }} className="BackMonth">
+                </div>
+                <div className="MonthYear">
+                    {nameMonth[+month.format('MM') - 1]}, {month.format('YYYY')}
+                </div>
+                <div onClick={nextMonth} className="NextMonth">
+                </div>
+            </div>
+            <div className="Days NameDays">
+                <div className="DaysOfWeek">Пн</div>
+                <div className="DaysOfWeek">Вт</div>
+                <div className="DaysOfWeek">Ср</div>
+                <div className="DaysOfWeek">Чт</div>
+                <div className="DaysOfWeek">Пт</div>
+                <div className="DaysOfWeek">Сб</div>
+                <div className="DaysOfWeek">Вс</div>
+            </div>
+            <div className="Days">
+                {(calendary) ? calendary.map((day) => {
+                    return <Day key={day._d}{...day} />
+                 }):
 
-            <div>
-            <span> {getMonth()}, {nowYear} </span>
-            <div className="Calendar">
-                {calendar.map((obj) => {
-                    return(
-                        <div className="Date"> <span>{obj.format("DD")}</span></div>
-                    )
-                })}
+                    <div id="preloader">
+                        <div id="loader"></div>
+                    </div>
+
+                }
             </div>
-            </div>
+
+
+
+
+            {/* {(calendary)?calendary.map((obj) => {
+                    
+                }):<h1>loading</h1>} */}
         </>
     )
 }
