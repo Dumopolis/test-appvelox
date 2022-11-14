@@ -5,20 +5,24 @@ import { Record } from "./Record"
 import {Calendar} from './Calendar'
 
 function MedicalRecords() {
+    const { applications, applicationsView, getCalendary, month, addApplicationsOnCalenadry, setApplicationsView, switchTitleHeader} = useContext(ApplicationContext)
     const navigate = useNavigate()
-    const { applications, applicationsView, getCalendary, month, addApplicationsOnCalenadry, setApplicationsView} = useContext(ApplicationContext)
     const goBack = () => navigate("/profile")
+    
     useEffect(()=> {
         getCalendary();
         addApplicationsOnCalenadry();
+        switchTitleHeader("Мой профиль");
+        setApplicationsView(applications)
      },[month])
+     
     return (
         <div className="My-Applications">
             <div className="My-Applications-Header Topic">
                <div onClick={goBack} className="Arrow Back"></div>
                 <span>Мои записи</span>
             </div>
-            <div  onClick={setApplicationsView} className="LinkDecoration ViewAll">Показать все записи</div>
+            <div  onClick={() => setApplicationsView(applications)} className="LinkDecoration ViewAll">Показать все записи</div>
             <div className="My-Applications-Main">
                 
                 <div className="MedicalRecords">

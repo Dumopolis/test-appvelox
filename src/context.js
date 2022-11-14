@@ -10,13 +10,16 @@ const initialState = {
     calendary:[],
     nameMonth:['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
     month: moment(),
-    
+    titleHeader: "Домашняя Страница"
 };
 
 export const ApplicationContext = createContext();
 
 export const ContextProvider = ({ children }) => {
     const [value, dispatch] = useReducer(reducer, initialState)
+    value.switchTitleHeader = (titleName) => {
+        dispatch({type:'SWITCH_TITLE_NAME', payload: titleName})
+    }
     value.handleDropdown = () => {
         dispatch({type:'HANDLE_DROPDOWN'})
     }

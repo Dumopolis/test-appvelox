@@ -8,6 +8,7 @@
 }
 
 .Header-Logo {
+  min-width: 190px;
   width: 190px;
   text-align: left;
   height: 100%;
@@ -174,7 +175,7 @@
 .active {
   background-color: #fff;
   color: #7761FF;
-  border-left: #7761FF solid 3.3px;
+  border-left: #7761FF solid 3px;
 }
 
 .active .Section-Icon {
@@ -540,7 +541,7 @@
 
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  gap: 0.5px;
+  
   width: 553px;
   height: 352px;
   font-weight: 400;
@@ -552,13 +553,26 @@
   height: 37px;
 }
 
+
 .Date {
   position: relative;
   width: 100%;
   height: 100%;
   background-color: #fff;
   cursor: pointer;
-  
+  border: none;
+  padding: 2px;
+ 
+  display: flex;
+}
+
+.Date:focus {
+  border: #50CAFF 2px solid;
+  padding: 0;
+}
+.Date:focus .ApplicationCount{
+  bottom: 8px;
+  right: 8px;
 }
 
 .MonthSet {
@@ -584,10 +598,9 @@
 }
 
 .Day {
-  width: 100%;
-  height: 100%;
-  margin: 10px 14px;
-  text-align: start;
+ 
+  margin: 10px 0 0 14px;
+  
 }
 
 .ApplicationCount {
@@ -648,13 +661,23 @@
   width: 150px;
   text-align: center;
 }
-
-.Date {
-  padding: 2px;
-  border: none;
+.NotFound{
+  width: 100%;
+  height: 100%;
+  font-size: 36px;
+  font-weight: 500;
+  display: flex;
+  margin-top: 100px;
+  align-items: center;
+  flex-direction: column;
 }
+.SadSmile{
+  width: 300px;
+  height: 300px;
+  background-color: #50CAFF;
+  -webkit-mask: url(./IMG/sadSmiley.svg) no-repeat center;
+  mask: url(./IMG/sadSmiley.svg) no-repeat center;
+  margin-bottom: 50px;
+  cursor: pointer;
 
-.Date:focus {
-  border: #50CAFF 2px solid;
-  padding:0;
 }

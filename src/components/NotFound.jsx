@@ -1,6 +1,14 @@
-function NotFound(){
+import { useNavigate } from "react-router-dom"
+
+
+function NotFound() {
+    const navigate = useNavigate()
+    const goBack = () => navigate(-1)
     return (
-        <h1>Page not found</h1>
+        <div className="NotFound">
+            <div onClick={goBack} className="SadSmile"></div>
+            Page Not Found
+        </div>
     )
 }
-export {NotFound}
+export { NotFound }

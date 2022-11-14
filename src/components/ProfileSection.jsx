@@ -2,12 +2,14 @@
 import { ElectroningCard } from "./ElectronicCard";
 import { Record } from "./Record";
 import { Link } from "react-router-dom";
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { ApplicationContext } from "../context";
 
 function ProfileSection() {
-    const { applications} = useContext(ApplicationContext)
-    
+    const { applications, switchTitleHeader} = useContext(ApplicationContext)
+    useEffect(()=>{
+        switchTitleHeader("Мой профиль")
+    }, [])
 
 
     return (

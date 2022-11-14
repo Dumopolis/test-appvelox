@@ -1,4 +1,3 @@
-
 import { useContext } from "react";
 import { ApplicationContext } from "../context";
 
@@ -12,8 +11,10 @@ function Day(props) {
                 <button 
                     onClick={() => {
                         if (props.application.length) {
-                            setApplicationsView(props.application)
+                            return setApplicationsView(props.application)
                         }
+                        setApplicationsView([{noneApplication: true,
+                        id:"1s5d5",}])
 
                     }}
                     className="Date">
@@ -37,17 +38,7 @@ function Day(props) {
 
             }
         </>
-        // return (
-        //     (obj.active) ?
-        //         <div onClick={() => {
-        //             if (obj.application.length) {
-        //                 setApplicationsView(obj.application)
-        //             }
 
-        //         }} className="Date"> <div className="Day">{obj.format("DD")}</div> {(obj.application.length) ? <div className="ApplicationCount">  {(obj.application.length)} </div> : null}</div> :
-        //         <div className="Date Disable"> <div className="Day Disable">{obj.format("DD")}</div> </div>
-
-        // )
     )
 }
 export { Day }
