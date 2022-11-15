@@ -1,10 +1,10 @@
 import { useContext } from "react";
-import { ApplicationContext } from "../context";
+import { ProfileContext } from "../context";
 
 
 function Day(props) {
     
-    const { setApplicationsView } = useContext(ApplicationContext)
+    const { setApplicationsView } = useContext(ProfileContext)
     return (
         <>
             {(props.isDayActive) ?

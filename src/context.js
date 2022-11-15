@@ -10,10 +10,11 @@ const initialState = {
     calendary:[],
     nameMonth:['Январь', 'Февраль', 'Март', 'Апрель', 'Май', 'Июнь', 'Июль', 'Август', 'Сентябрь', 'Октябрь', 'Ноябрь', 'Декабрь'],
     month: moment(),
-    titleHeader: "Домашняя Страница"
+    titleHeader: "Домашняя Страница",
+    isDropdownView: false,
 };
 
-export const ApplicationContext = createContext();
+export const ProfileContext = createContext();
 
 export const ContextProvider = ({ children }) => {
     const [value, dispatch] = useReducer(reducer, initialState)
@@ -22,6 +23,9 @@ export const ContextProvider = ({ children }) => {
     }
     value.handleDropdown = () => {
         dispatch({type:'HANDLE_DROPDOWN'})
+    }
+    value.closeDropdown = () => {
+        dispatch({type:'CLOSE_DROPDOWN'})
     }
 
     value.getCalendary = () => {
@@ -36,8 +40,8 @@ export const ContextProvider = ({ children }) => {
     value.previousMonth = () =>{
         dispatch({type:'PREVIOUS_MONTH'})
     }
-    value.setApplicationsView = (count) =>{
-        dispatch({type:'SET_APPLICATIONS_VIEW', payload: count})
+    value.setApplicationsView = (obj) =>{
+        dispatch({type:'SET_APPLICATIONS_VIEW', payload: obj})
     }
     value.cancelApplication = (applicationId) => {
         dispatch({type:'CANCEL_APPLICATION', payload: applicationId})
@@ -45,9 +49,9 @@ export const ContextProvider = ({ children }) => {
     
 
     return (
-        <ApplicationContext.Provider value={value}>
+        <ProfileContext.Provider value={value}>
             {children}
-        </ApplicationContext.Provider>
+        </ProfileContext.Provider>
     )
 
 }

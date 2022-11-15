@@ -17,7 +17,7 @@ const Applications =
             doctorName: 'Малушко Т.Н',
             department: 'Хирургия',
             address: 'СПБ ГБУЗ "Городская поликлиника №25", пр. Солидарности, д. 1, к. 1, лит. А',
-            date: '21.11.22',
+            date: '21.01.23',
             time: '15:30',
             avatar: malushko,
             id: 1

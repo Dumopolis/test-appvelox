@@ -1,7 +1,8 @@
 
 import moment from "moment";
 import { useContext } from "react"
-import { ApplicationContext } from "../context"
+import { ProfileContext } from "../context"
+import { RecordeNone } from "./RecordNone";
 
 function Record(props) {
     const {
@@ -14,11 +15,11 @@ function Record(props) {
         id
     } = props
 
-    const { cancelApplication, getCalendary, addApplicationsOnCalenadry} = useContext(ApplicationContext)
+    const { cancelApplication, getCalendary, addApplicationsOnCalenadry } = useContext(ProfileContext)
     const weekDayName = moment(date, 'DD.MM.YY').format("dddd")
 
     return (
-        (props.noneApplication) ? <h1>Записей нет</h1> :
+        (props.noneApplication) ? <RecordeNone /> :
             <div className="Record">
                 <div className="RecordDate">{weekDayName} {date} | {time} </div>
                 <div className="Address">{address}</div>
@@ -34,9 +35,11 @@ function Record(props) {
                             </p>
                         </div>
                     </div>
-                    <div onClick={() => { cancelApplication(id);
-                          getCalendary()
-                          addApplicationsOnCalenadry()}} className="Button">Отменить</div>
+                    <div onClick={() => {
+                        cancelApplication(id);
+                        getCalendary()
+                        addApplicationsOnCalenadry()
+                    }} className="Button">Отменить</div>
                 </div>
             </div>
 

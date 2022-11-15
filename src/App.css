@@ -1,3 +1,9 @@
+body {
+  --light-blue-color: #50CAFF;
+  --dark-blue-color: #003B72;
+  --active-color: #7761FF;
+}
+
 .Header {
   width: 100%;
   display: inline-flex;
@@ -7,17 +13,17 @@
   color: #fff;
 }
 
+.Logo {
+  margin: 20px 0 0 20px;
+}
+
 .Header-Logo {
   min-width: 190px;
   width: 190px;
   text-align: left;
   height: 100%;
-  background-color: #003B72;
+  background-color: var(--dark-blue-color);
 
-}
-
-.Logo {
-  margin: 20px 0 0 20px;
 }
 
 .Header-Main {
@@ -26,7 +32,7 @@
   align-items: center;
   width: calc(100vw - 190px);
   height: 100%;
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
 
 }
 
@@ -74,9 +80,8 @@
   mask: url(./IMG/eye.svg) no-repeat center;
 }
 
-.Profile {
+.Profile-Miniature {
   display: inline-flex;
-
   height: 100%;
   justify-content: space-between;
   align-items: center;
@@ -97,7 +102,7 @@
 
 }
 
-.Profile-Dropdown {
+.Dropdown-Button {
   width: 16px;
   height: 16px;
   background-color: #fff;
@@ -106,38 +111,72 @@
   cursor: pointer;
 }
 
-.Profile-Dropdown::before {
+.Dropdown-Button::before {
   content: '';
   top: 8px;
   left: 7.2px;
   transform: rotate(-30deg);
   position: absolute;
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
   height: 1.3px;
   width: 5px;
   border-radius: 1px;
   transition: 0.3s;
 }
 
-.Profile-Dropdown::after {
+.Dropdown-Button::after {
   content: '';
   top: 8px;
   right: 7.2px;
   transform: rotate(30deg);
   position: absolute;
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
   height: 1.3px;
   width: 5px;
   border-radius: 1px;
   transition: 0.3s;
 }
 
-.Profile-Dropdown.Active::after {
+.Dropdown-Button.Active::after {
   transform: rotate(-30deg)
 }
 
-.Profile-Dropdown.Active::before {
+.Dropdown-Button.Active::before {
   transform: rotate(30deg)
+}
+.Dropdown-Menu{
+  position: absolute;
+  bottom:-210px;
+  left: -100px;
+  width: 150px;
+  height: 170px;
+  background-color: var(--dark-blue-color);
+  opacity: 0;
+  transition: 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  border-radius: 5px;
+  padding: 5px 0 10px 0;
+  z-index: -5;
+}
+.Dropdown-Menu-Item{
+  border-radius: 5px;
+  width: 100%;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Dropdown-Menu-Item:active{
+  background-color: #fff;
+  color: var(--active-color);
+
+}
+.Active {
+  opacity: 1;
+  z-index: 1;
 }
 
 .Main {
@@ -149,10 +188,11 @@
 .Navigation {
   width: 190px;
   height: 100%;
+  min-height: 800px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  background-color: #003B72;
+  background-color: var(--dark-blue-color);
 }
 
 .Sections {
@@ -169,17 +209,17 @@
   font-size: 14px;
   margin-bottom: 10px;
   align-items: center;
-  border-left: #003B72 solid 3px;
+  border-left: var(--dark-blue-color) solid 3px;
 }
 
 .active {
   background-color: #fff;
-  color: #7761FF;
-  border-left: #7761FF solid 3px;
+  color: var(--active-color);
+  border-left: var(--active-color) solid 3px;
 }
 
 .active .Section-Icon {
-  background-color: #7761FF;
+  background-color: var(--active-color);
 }
 
 
@@ -230,7 +270,7 @@
 }
 
 .Button {
-  background-color: #7761FF;
+  background-color: var(--active-color);
   height: 40px;
   width: 98px;
   color: #fff;
@@ -244,6 +284,7 @@
   cursor: pointer;
 }
 
+
 .Button-Navigation {
   width: 150px;
   margin-left: 20px;
@@ -251,6 +292,10 @@
 
 .Button:hover {
   opacity: 1;
+}
+.Button:active{
+  background-color: #fff;
+  color: var(--active-color);
 }
 
 .AppVelox {
@@ -260,13 +305,10 @@
   margin-bottom: 16px;
 }
 
-
-
-
-
 .ProfileSection {
   margin: 15px 60px 0 20px;
   width: 100%;
+  
 }
 
 .Topic {
@@ -285,16 +327,16 @@
 
 .Records-Preview {
   display: inline-flex;
-  margin: 15px 0 35px 0;
+  margin: 15px 0 20px 0;
   align-items: center;
-
-
+  width: 1000px;
+  justify-content: center;
 }
 
 .Record {
   width: 435px;
   height: 134px;
-  margin: 0 20px 0 0;
+  margin: 0 20px 15px 0;
   padding: 20px;
   box-shadow: 0px 0px 5px #EBE7FF;
   border-radius: 5px;
@@ -302,6 +344,11 @@
   flex-direction: column;
   align-items: flex-start;
 
+}
+
+.RecordNone{
+  justify-content: center;
+  align-items: center;
 }
 
 .RecordDate {
@@ -361,13 +408,13 @@
 }
 
 .LinkDecoration {
-  color: #50CAFF;
+  color: var(--light-blue-color);
   text-decoration: underline;
   cursor: pointer;
 }
 
 .LinkDecoration:active {
-  color: #7761FF;
+  color: var(--active-color);
 }
 
 .ElectroningCard {
@@ -450,15 +497,15 @@
 }
 
 .Card:hover {
-  border: #50CAFF solid 2px;
+  border: var(--light-blue-color) solid 2px;
 }
 
 .Card:hover .Card-Icons {
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
 }
 
 .Card:hover .Line {
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
 }
 
 .Card:hover .Card-Icon {
@@ -466,15 +513,16 @@
 }
 
 .Card:hover .List {
-  color: #50CAFF;
+  color: var(--light-blue-color);
 }
 
 .MedicalRecords {
-  margin: 10px 40px 23px 18px;
+  margin: 5px 35px 18px 13px;
+  padding: 5px;
   width: 505px;
   height: 646px;
   overflow: scroll;
-  scrollbar-color: #003B72 #fff;
+  scrollbar-color: var(--dark-blue-color) #fff;
   scrollbar-width: 8px;
 
 }
@@ -488,7 +536,7 @@
 }
 
 .MedicalRecords::-webkit-scrollbar-thumb {
-  background-color: #003B72;
+  background-color: var(--dark-blue-color);
   border-radius: 5px;
 }
 
@@ -514,7 +562,7 @@
 }
 
 .Arrow:active {
-  background-color: #7761FF;
+  background-color: var(--active-color);
 }
 
 .My-Applications {
@@ -538,10 +586,8 @@
 }
 
 .Days {
-
   display: grid;
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
-  
   width: 553px;
   height: 352px;
   font-weight: 400;
@@ -552,7 +598,6 @@
 .NameDays {
   height: 37px;
 }
-
 
 .Date {
   position: relative;
@@ -567,7 +612,7 @@
 }
 
 .Date:focus {
-  border: #50CAFF 2px solid;
+  border: var(--light-blue-color) 2px solid;
   padding: 0;
 }
 .Date:focus .ApplicationCount{
@@ -584,7 +629,7 @@
   line-height: 17px;
   width: 573px;
   height: 57px;
-  background-color: #7761FF;
+  background-color: var(--active-color);
   color: #fff;
   border-radius: 5px;
   margin: 14px 0 0 0;
@@ -614,36 +659,28 @@
   font-size: 14px;
   line-height: 14px;
   color: #fff;
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .BackMonth {
-
   width: 14px;
   height: 14px;
   background-color: #fff;
   -webkit-mask: url(./IMG/back.svg) no-repeat center;
   mask: url(./IMG/back.svg) no-repeat center;
-
-  cursor: pointer;
-
+ cursor: pointer;
 }
 
-
-
 .NextMonth {
-
   width: 14px;
   height: 14px;
   background-color: #fff;
   -webkit-mask: url(./IMG/next.svg) no-repeat center;
   mask: url(./IMG/next.svg) no-repeat center;
-
   cursor: pointer;
-
 }
 
 .Disable {
@@ -663,7 +700,7 @@
 }
 .NotFound{
   width: 100%;
-  height: 100%;
+  height: 50%;
   font-size: 36px;
   font-weight: 500;
   display: flex;
@@ -674,7 +711,7 @@
 .SadSmile{
   width: 300px;
   height: 300px;
-  background-color: #50CAFF;
+  background-color: var(--light-blue-color);
   -webkit-mask: url(./IMG/sadSmiley.svg) no-repeat center;
   mask: url(./IMG/sadSmiley.svg) no-repeat center;
   margin-bottom: 50px;

@@ -1,9 +1,9 @@
 import { useContext } from "react"
-import { NavLink } from "react-router-dom"
-import { ApplicationContext } from "../context"
+import { Link, NavLink } from "react-router-dom"
+import { ProfileContext } from "../context"
 import appvelox from '../IMG/appvelox.png'
 function Navigate() {
-    const {switchTitleHeader} = useContext(ApplicationContext)
+    const {switchTitleHeader} = useContext(ProfileContext)
     return (
         <div className="Navigation">
             <div className="Sections">
@@ -37,9 +37,9 @@ function Navigate() {
                     <div className="Section-Icon Helpful-Icon"></div>
                     <div className="Section-Name">Полезно знать</div>
                 </NavLink>
-                <NavLink onClick={() => {
+                <Link onClick={() => {
                     switchTitleHeader("Заявки")
-                }} to="application" className="Button Button-Navigation">Подать Заявку</NavLink>
+                }} to="application" className="Button Button-Navigation">Подать Заявку</Link>
             </div>
             <div className="Navigation-Footer">
                 <NavLink onClick={() => {

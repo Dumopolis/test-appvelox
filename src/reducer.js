@@ -11,6 +11,18 @@ moment.updateLocale("eu", {
 );
 export function reducer(state, { type, payload }) {
     switch (type) {
+        case 'CLOSE_DROPDOWN':
+            return {
+                ...state,
+                isDropdownView: false
+            }
+        case 'HANDLE_DROPDOWN':
+          
+            return {
+                ...state,
+                isDropdownView: !state.isDropdownView
+            }
+
         case 'SWITCH_TITLE_NAME':
             return {
                 ...state,
@@ -85,16 +97,10 @@ export function reducer(state, { type, payload }) {
             }
         case 'SET_APPLICATIONS_VIEW':
             {
-                if (Number(payload)) {
+                if (!payload) {
                     return {
                         ...state,
-                        applicationsView: state.applications.slice(0, payload)
-                    }
-                }
-                else if (!payload) {
-                    return {
-                        ...state,
-                        applicationsView: null
+                        applicationsView: state.applications
                     }
                 }
                 return {

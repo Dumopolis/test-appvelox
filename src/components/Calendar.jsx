@@ -1,11 +1,11 @@
 import { useContext } from "react";
-import { ApplicationContext } from "../context";
+import { ProfileContext } from "../context";
 import '../preloader.css'
 import { Day } from "./Day";
 
 
 function Calendar() {
-    const { nameMonth, month, previousMonth, nextMonth, calendary, } = useContext(ApplicationContext)
+    const { nameMonth, month, previousMonth, nextMonth, calendary, } = useContext(ProfileContext)
 
     return (
         <>
