@@ -4,7 +4,9 @@ import { ProfileContext } from "../context";
 import avatar from '../IMG/avatar.png'
 function Header() {
     const { titleHeader, switchTitleHeader, handleDropdown, isDropdownView, closeDropdown } = useContext(ProfileContext)
+    
     const ref = useRef(null);
+
     function useOutsideAlerter(ref){
         useEffect(() => {
             function handleClickOutside(event) {

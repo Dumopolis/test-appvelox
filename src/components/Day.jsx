@@ -13,8 +13,7 @@ function Day(props) {
                         if (props.application.length) {
                             return setApplicationsView(props.application)
                         }
-                        setApplicationsView([{noneApplication: true,
-                        id:"1s5d5",}])
+                        setApplicationsView([])
 
                     }}
                     className="Date">
@@ -26,9 +25,6 @@ function Day(props) {
                 </button>
                 :
                 <button disabled
-                    onClick={() => {
-                        setApplicationsView()
-                    }}
                     className="Date Disable">
                     <div className="Day Disable">
                         {props._d.getDate()}

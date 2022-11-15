@@ -8,7 +8,7 @@ import { RecordeNone } from "./RecordNone"
 function MedicalRecords() {
     const { applications, applicationsView, getCalendary, month, addApplicationsOnCalenadry, setApplicationsView, switchTitleHeader } = useContext(ProfileContext)
     const navigate = useNavigate()
-    const goBack = () => navigate("/profile")
+    const goBack = () => navigate(-1)
 
     useEffect(() => {
         getCalendary();

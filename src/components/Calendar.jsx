@@ -42,12 +42,6 @@ function Calendar() {
                 }
             </div>
 
-
-
-
-            {/* {(calendary)?calendary.map((obj) => {
-                    
-                }):<h1>loading</h1>} */}
         </>
     )
 }
