@@ -28,7 +28,7 @@ return (
     <header className="Header">
         <div className="Header-Logo">
             <div className="Logo">
-                <Link to="/" onClick={() => switchTitleHeader("Домашняя страница")} >Логотип</Link>
+                <Link to="/test-appvelox" onClick={() => switchTitleHeader("Домашняя страница")} >Логотип</Link>
             </div>
         </div>
         <div className="Header-Main">

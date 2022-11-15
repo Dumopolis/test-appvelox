@@ -12,7 +12,7 @@ function App() {
     <BrowserRouter>
       <ContextProvider>
         <Routes>
-          <Route path='/' element={<Layout />}>
+          <Route path='test-appvelox' element={<Layout />}>
             <Route path='profile' element={<ProfileSection />} />
             <Route path='profile/records' element={<MedicalRecords />} />
             <Route path='*' element={<NotFound />} />
